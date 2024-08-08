@@ -8,7 +8,7 @@ pub fn getrandom_inner(dest: &mut [MaybeUninit<u8>]) -> Result<(), Error> {
 
 // Also used by linux_android_with_fallback to check if the syscall is available.
 pub fn getrandom_syscall(buf: &mut [MaybeUninit<u8>]) -> libc::ssize_t {
-    if cfg!(feature = "system-test") {
+    if cfg!(feature = "deterministic-simulation") {
         unsafe {
             libc::getrandom(buf.as_mut_ptr() as *mut libc::c_void, buf.len(), 0) as libc::ssize_t
         }
