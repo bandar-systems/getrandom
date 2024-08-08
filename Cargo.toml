@@ -52,7 +52,7 @@ rustc-dep-of-std = [
 ]
 # Unstable/test-only feature to run wasm-bindgen tests in a browser
 test-in-browser = []
-system-test = []
+deterministic-simulation = []
 
 [[test]]
 name = "custom"
